@@ -37,7 +37,6 @@ function App() {
       <Navigation
         navItems={NAV_ITEMS}
         activeSection={activeSection}
-        setActiveSection={setActiveSection}
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
         scrollToSection={scrollToSection}

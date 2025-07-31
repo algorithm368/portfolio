@@ -1,4 +1,4 @@
-import { NavItem, SectionId } from "../types";
+import type { NavItem, SectionId } from "../types";
 
 export const NAV_ITEMS: NavItem[] = [
   { id: "hero", label: "Home" },
@@ -7,4 +7,9 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "contact", label: "Contact" },
 ];
 
-export const SECTION_IDS: SectionId[] = ["hero", "about", "projects", "contact"];
+export const SECTION_IDS: SectionId[] = [
+  "hero",
+  "about",
+  "projects",
+  "contact",
+];
