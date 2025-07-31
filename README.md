@@ -1,69 +1,83 @@
-# React + TypeScript + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio web application built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡️ Fast development with Vite
+- ⚛️ Built using React and TypeScript
+- 🎨 Customizable and modern UI
+- 📱 Responsive design for all devices
+- 🧩 Modular component structure
+- 🌙 Light/Dark theme support
+- 🔍 Scroll spy navigation
+- 📝 Easy to extend and maintain
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── public/                # Static assets
+├── src/
+│   ├── App.tsx            # Main app component
+│   ├── index.tsx          # Entry point
+│   ├── main.tsx           # Vite main entry
+│   ├── style.css          # Global styles
+│   ├── assets/            # Images and SVGs
+│   ├── components/        # Reusable React components
+│   ├── hooks/             # Custom React hooks
+│   ├── styles/            # CSS animations and styles
+│   ├── types/             # TypeScript type definitions
+│   └── utils/             # Utility functions and constants
+├── package.json           # Project metadata and scripts
+├── tsconfig.json          # TypeScript configuration
+├── vite.config.ts         # Vite configuration
+└── README.md              # Project documentation
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Install dependencies:**
+   ```fish
+   pnpm install
+   # or
+   npm install
+   # or
+   yarn install
+   ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. **Run the development server:**
+   ```fish
+   pnpm dev
+   # or
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+3. **Build for production:**
+   ```fish
+   pnpm build
+   # or
+   npm run build
+   # or
+   yarn build
+   ```
+
+4. **Preview the production build:**
+   ```fish
+   pnpm preview
+   # or
+   npm run preview
+   # or
+   yarn preview
+   ```
+
+## Customization
+
+- Update content in `src/components/` to personalize your portfolio.
+- Add or modify images in the `public/` or `src/assets/` folders.
+- Adjust theme and styles in `src/styles/` and `src/utils/theme.ts`.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
