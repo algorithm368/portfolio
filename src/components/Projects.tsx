@@ -55,9 +55,18 @@ function Projects({ darkMode }: ProjectsProps) {
             kanji="竹"
             img="/portfolio/project_competency.png"
           />
+            <ProjectBox
+              darkMode={darkMode}
+              reverse
+              title="Covid-19 USA Dashboard"
+              description="React-based dashboard for visualizing COVID-19 data in the USA, featuring charts and responsive design."
+              techs={["React", "MUI", "Javascript", "Chart.js", "GeoJSON"]}
+              role="Team Project"
+              kanji="松"
+              img="/portfolio/project_covid.png"
+            />
           <ProjectBox
             darkMode={darkMode}
-            reverse
             title="Courses Management Website"
             description="React-based course management system with Bootstrap styling and responsive table implementation for CRUD operations."
             techs={["React", "Bootstrap", "Javascript", "Node.js", "Express"]}
@@ -66,16 +75,7 @@ function Projects({ darkMode }: ProjectsProps) {
             img="/portfolio/project_course.png"
           />
           <ProjectBox
-            darkMode={darkMode}
             reverse
-            title="Covid-19 USA Dashboard"
-            description="React-based dashboard for visualizing COVID-19 data in the USA, featuring charts and responsive design."
-            techs={["React", "MUI", "Javascript", "Chart.js", "GeoJSON"]}
-            role="Team Project"
-            kanji="松"
-            img="/portfolio/project_covid.png"
-          />
-          <ProjectBox
             darkMode={darkMode}
             title="Deposit System Project"
             description="Desktop application built with Python and PyQt5, implementing data structures and algorithms for efficient UI software."
