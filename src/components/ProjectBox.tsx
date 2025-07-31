@@ -13,7 +13,8 @@ interface ProjectBoxProps {
  * Renders a single project card with image or kanji, description, tech stack, and role.
  * @param props - ProjectBoxProps
  */
-import React, { useState } from "react";
+
+import { useState } from "react";
 
 function ProjectBox({
   darkMode,

@@ -4,7 +4,6 @@ import { THEME } from "../utils/theme";
 interface NavigationProps {
   readonly navItems: { id: string; label: string }[];
   readonly activeSection: string;
-  readonly setActiveSection: (section: string) => void;
   readonly darkMode: boolean;
   readonly toggleDarkMode: () => void;
   readonly scrollToSection: (sectionId: string) => void;
@@ -15,7 +14,6 @@ interface NavigationProps {
 function Navigation({
   navItems,
   activeSection,
-  setActiveSection,
   darkMode,
   toggleDarkMode,
   scrollToSection,

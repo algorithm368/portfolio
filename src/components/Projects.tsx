@@ -53,7 +53,7 @@ function Projects({ darkMode }: ProjectsProps) {
             techs={["React.js", "Tailwind", "Node.js", "TypeScript"]}
             role="Team Project"
             kanji="竹"
-            img="/Portfolio/project_competency.png"
+            img="/portfolio/project_competency.png"
           />
           <ProjectBox
             darkMode={darkMode}
@@ -63,7 +63,7 @@ function Projects({ darkMode }: ProjectsProps) {
             techs={["React", "Bootstrap", "Javascript"]}
             role="Team Project"
             kanji="松"
-            img="/Portfolio/project_course.png"
+            img="/portfolio/project_course.png"
           />
           <ProjectBox
             darkMode={darkMode}
@@ -73,7 +73,7 @@ function Projects({ darkMode }: ProjectsProps) {
             techs={["React", "MUI", "Javascript"]}
             role="Team Project"
             kanji="松"
-            img="/Portfolio/project_covid.png"
+            img="/portfolio/project_covid.png"
           />
           <ProjectBox
             darkMode={darkMode}
