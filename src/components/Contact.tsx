@@ -58,14 +58,14 @@ function Contact({ darkMode }: ContactProps) {
                   Email
                 </h3>
                 <a
-                  href="mailto:siriwatc65@nu.ac.th"
+                  href="mailto:siriwat.chr@gmail.com"
                   className={`font-light ${
                     darkMode
                       ? "text-emerald-400 hover:text-emerald-300"
                       : "text-emerald-600 hover:text-emerald-700"
                   } transition-colors duration-300`}
                 >
-                  siriwatc65@nu.ac.th
+                  siriwat.chr@gmail.com
                 </a>
               </div>
             </div>
@@ -146,7 +146,7 @@ function Contact({ darkMode }: ContactProps) {
               </h3>
               <div className="flex space-x-6">
                 <a
-                  href="https://github.com/your-github-username"
+                  href="https://github.com/algorithm368"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`p-4 transition-all duration-300 hover:transform hover:scale-110 ${
@@ -158,7 +158,7 @@ function Contact({ darkMode }: ContactProps) {
                   <Github className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/your-linkedin-username"
+                  href="https://www.linkedin.com/in/siriwat-chairak-341602344"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`p-4 transition-all duration-300 hover:transform hover:scale-110 ${

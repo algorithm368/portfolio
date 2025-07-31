@@ -90,7 +90,7 @@ function Hero({ darkMode, scrollToSection }: HeroProps) {
             ></div>
             <div className="flex items-center gap-3">
               <Mail className="w-4 h-4" />
-              <span>siriwatc65@nu.ac.th</span>
+              <span>siriwat.chr@gmail.com</span>
             </div>
             <div
               className={`hidden sm:block w-1 h-1 rounded-full ${

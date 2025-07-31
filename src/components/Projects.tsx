@@ -50,7 +50,7 @@ function Projects({ darkMode }: ProjectsProps) {
             darkMode={darkMode}
             title="Competency Database Website"
             description="Fullstack web application with React.js frontend and Node.js backend featuring RESTful APIs and responsive UI design."
-            techs={["React.js", "Tailwind", "Node.js", "TypeScript"]}
+            techs={["React.js", "Tailwind", "Node.js", "TypeScript", "Express", "MySQL"]}
             role="Team Project"
             kanji="竹"
             img="/portfolio/project_competency.png"
@@ -60,7 +60,7 @@ function Projects({ darkMode }: ProjectsProps) {
             reverse
             title="Courses Management Website"
             description="React-based course management system with Bootstrap styling and responsive table implementation for CRUD operations."
-            techs={["React", "Bootstrap", "Javascript"]}
+            techs={["React", "Bootstrap", "Javascript", "Axios", "Node.js", "Express"]}
             role="Team Project"
             kanji="松"
             img="/portfolio/project_course.png"
@@ -70,7 +70,7 @@ function Projects({ darkMode }: ProjectsProps) {
             reverse
             title="Covid-19 USA Dashboard"
             description="React-based dashboard for visualizing COVID-19 data in the USA, featuring charts and responsive design."
-            techs={["React", "MUI", "Javascript"]}
+            techs={["React", "MUI", "Javascript", "Axios", "Chart.js", "GeoJSON"]}
             role="Team Project"
             kanji="松"
             img="/portfolio/project_covid.png"
