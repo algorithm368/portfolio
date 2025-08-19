@@ -1,3 +1,9 @@
+import { THEME } from "../utils/theme";
+import { useState } from "react";
+
+// =======================
+// ProjectBox Props
+// =======================
 interface ProjectBoxProps {
   darkMode: boolean;
   reverse?: boolean;
@@ -7,15 +13,12 @@ interface ProjectBoxProps {
   role: string;
   kanji: string;
   img?: string;
+  link?: string;
 }
 
-/**
- * Renders a single project card with image or kanji, description, tech stack, and role.
- * @param props - ProjectBoxProps
- */
-
-import { useState } from "react"; 
-
+// =======================
+// ProjectBox Component
+// =======================
 function ProjectBox({
   darkMode,
   reverse,
@@ -25,29 +28,30 @@ function ProjectBox({
   role,
   kanji,
   img,
+  link,
 }: Readonly<ProjectBoxProps>) {
   const [modalOpen, setModalOpen] = useState(false);
+  const theme = darkMode ? THEME.dark : THEME.light;
 
   return (
-    <div
-      className={`grid lg:grid-cols-2 gap-16 items-center ${
-        darkMode ? "hover:bg-gray-800/20" : "hover:bg-white"
-      } p-8 transition-all duration-500`}
-      style={reverse ? { direction: "rtl" } : {}}
+    // =======================
+    // Card Container
+    // =======================
+    <section
+      className={`flex flex-col lg:flex-row ${
+        reverse ? "lg:flex-row-reverse" : ""
+      } 
+        items-center rounded-xl shadow-lg overflow-hidden transition-all duration-500
+        ${theme.projectBoxBg}`}
+      style={{ minHeight: "20rem" }}
     >
-      <div
-        className={`h-80 flex items-center justify-center ${
-          darkMode ? "bg-gray-800" : "bg-white"
-        }`}
-      >
+      {/* =======================
+          Image / Kanji Section
+      ======================= */}
+      <div className="flex-1 flex items-center justify-center h-80">
         {img ? (
           <>
-            {/*
-              If your image is in src/assets, import it at the top of the file:
-              import myImg from '../assets/myimg.png';
-              Then use: img={myImg}
-              If your image is in public/, use: img="/myimg.png"
-            */}
+            {/* Project Image */}
             <img
               src={img}
               alt={title}
@@ -55,6 +59,7 @@ function ProjectBox({
               draggable={false}
               onClick={() => setModalOpen(true)}
             />
+            {/* Modal for Enlarged Image */}
             {modalOpen && (
               <div
                 className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
@@ -64,13 +69,13 @@ function ProjectBox({
                 <img
                   src={img}
                   alt={title}
-                  className="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border-4 border-white"
+                  className={`max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border-4 ${theme.projectBoxModalBorder}`}
                   draggable={false}
-                  onClick={e => e.stopPropagation()}
+                  onClick={(e) => e.stopPropagation()}
                 />
                 <button
                   className="absolute top-8 right-8 text-white text-4xl font-bold"
-                  onClick={e => {
+                  onClick={(e) => {
                     e.stopPropagation();
                     setModalOpen(false);
                   }}
@@ -83,54 +88,72 @@ function ProjectBox({
             )}
           </>
         ) : (
+          // Kanji Fallback
           <div
-            className={`text-8xl font-extralight opacity-20 ${
-              darkMode ? "text-emerald-400" : "text-emerald-600"
-            }`}
+            className={`text-8xl font-extralight opacity-20 ${theme.projectBoxKanji}`}
           >
             {kanji}
           </div>
         )}
       </div>
-      <div style={reverse ? { direction: "ltr" } : {}}>
-        <h3
-          className={`text-2xl font-light tracking-wide mb-6 ${
-            darkMode ? "text-gray-100" : "text-stone-800"
-          }`}
-        >
-          {title}
-        </h3>
+
+      {/* =======================
+          Details Section
+      ======================= */}
+      <div className="flex-1 flex flex-col justify-center px-8 py-6">
+        {/* Header: Title & Link */}
+        <header>
+          <h3
+            className={`text-2xl font-light tracking-wide mb-4 ${theme.projectBoxText}`}
+          >
+            {title}
+          </h3>
+          {/* Project Link Button */}
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mb-4 inline-block px-4 py-2 text-xs font-light tracking-wide rounded 
+                ${theme.projectBoxLinkBg} ${theme.projectBoxLinkText} ${theme.projectBoxLinkHover} transition`}
+            >
+              View Project
+            </a>
+          )}
+        </header>
+
+        {/* Description */}
         <p
-          className={`text-lg font-light leading-relaxed mb-8 ${
+          className={`text-lg font-light leading-relaxed mb-6 ${
             darkMode ? "text-gray-400" : "text-stone-500"
           }`}
         >
           {description}
         </p>
-        <div className="flex flex-wrap gap-4 mb-6">
+
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-4 mb-4">
           {techs.map((tech) => (
             <span
               key={tech}
-              className={`px-4 py-2 text-xs font-light tracking-wide ${
-                darkMode
-                  ? "bg-gray-700 text-gray-300"
-                  : "bg-stone-100 text-stone-600"
-              }`}
+              className={`px-4 py-2 text-xs font-light tracking-wide rounded 
+                ${theme.projectBoxTechBg} ${theme.projectBoxTechText}`}
             >
               {tech}
             </span>
           ))}
         </div>
-        <div
-          className={`text-sm font-light ${
-            darkMode ? "text-emerald-400" : "text-emerald-600"
-          }`}
-        >
+
+        {/* Role */}
+        <div className={`text-sm font-light ${theme.projectBoxRole}`}>
           {role}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
+// =======================
+// Export
+// =======================
 export default ProjectBox;

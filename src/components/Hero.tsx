@@ -1,11 +1,43 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import React from "react";
+import { THEME } from "../utils/theme";
 
 interface HeroProps {
   readonly darkMode: boolean;
   readonly scrollToSection: (sectionId: string) => void;
 }
 
+const contactInfo = [
+  { icon: Phone, value: "061-361-3628" },
+  { icon: Mail, value: "siriwat.chr@gmail.com" },
+  { icon: MapPin, value: "Phitsanulok, Thailand" },
+];
+
+const heroContent = {
+  firstName: "Siriwat",
+  lastName: "Chairak",
+  title: "Aspiring Fullstack Developer",
+  description:
+    "A passionate and fast-learning computer engineering student seeking an internship opportunity as a Fullstack Web Developer.",
+};
+
+function ContactItem({
+  icon: Icon,
+  value,
+}: {
+  icon: React.ElementType;
+  value: string;
+}) {
+  return (
+    <div className="flex items-center gap-3">
+      <Icon className="w-4 h-4" />
+      <span>{value}</span>
+    </div>
+  );
+}
+
 function Hero({ darkMode, scrollToSection }: HeroProps) {
+  const theme = darkMode ? THEME.dark : THEME.light;
   return (
     <section
       id="hero"
@@ -14,7 +46,7 @@ function Hero({ darkMode, scrollToSection }: HeroProps) {
       <div
         className={`absolute inset-0 ${
           darkMode
-            ? "bg-gray-900"
+            ? theme.navBg.split(" ")[0]
             : "bg-gradient-to-br from-stone-50 via-stone-100 to-emerald-50/30"
         }`}
       ></div>
@@ -22,12 +54,12 @@ function Hero({ darkMode, scrollToSection }: HeroProps) {
       {/* Zen circle decoration */}
       <div
         className={`absolute top-1/4 right-1/4 w-96 h-96 rounded-full border opacity-5 ${
-          darkMode ? "border-gray-600" : "border-emerald-200"
+          darkMode ? theme.navBorder : "border-emerald-200"
         }`}
       ></div>
       <div
         className={`absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full border opacity-5 ${
-          darkMode ? "border-gray-600" : "border-emerald-200"
+          darkMode ? theme.navBorder : "border-emerald-200"
         }`}
       ></div>
 
@@ -36,33 +68,35 @@ function Hero({ darkMode, scrollToSection }: HeroProps) {
           <div className="mb-8">
             <div
               className={`inline-block w-24 h-1 mb-8 ${
-                darkMode ? "bg-emerald-400" : "bg-emerald-500"
+                darkMode ? theme.navActive : "bg-emerald-500"
               }`}
             ></div>
           </div>
 
           <h1 className="text-6xl sm:text-7xl lg:text-8xl font-light mb-8 tracking-wider">
             <span
-              className={`${darkMode ? "text-gray-100" : "text-stone-800"}`}
+              className={`${
+                darkMode ? theme.projectBoxText : theme.projectBoxText
+              }`}
             >
-              Siriwat
+              {heroContent.firstName}
             </span>
             <br />
             <span
               className={`${
-                darkMode ? "text-emerald-400" : "text-emerald-600"
+                darkMode ? theme.projectBoxAccent : theme.projectBoxAccent
               } font-extralight`}
             >
-              Chairak
+              {heroContent.lastName}
             </span>
           </h1>
 
           <p
             className={`text-xl sm:text-2xl mb-12 font-light tracking-wide ${
-              darkMode ? "text-gray-300" : "text-stone-600"
+              darkMode ? theme.navText : theme.navText
             }`}
           >
-            Aspiring Fullstack Developer
+            {heroContent.title}
           </p>
 
           <p
@@ -70,8 +104,7 @@ function Hero({ darkMode, scrollToSection }: HeroProps) {
               darkMode ? "text-gray-400" : "text-stone-500"
             }`}
           >
-            A passionate and fast-learning computer science student seeking an
-            internship opportunity as a Fullstack Web Developer.
+            {heroContent.description}
           </p>
 
           <div
@@ -79,28 +112,18 @@ function Hero({ darkMode, scrollToSection }: HeroProps) {
               darkMode ? "text-gray-400" : "text-stone-500"
             }`}
           >
-            <div className="flex items-center gap-3">
-              <Phone className="w-4 h-4" />
-              <span>061-361-3628</span>
-            </div>
-            <div
-              className={`hidden sm:block w-1 h-1 rounded-full ${
-                darkMode ? "bg-gray-600" : "bg-stone-400"
-              }`}
-            ></div>
-            <div className="flex items-center gap-3">
-              <Mail className="w-4 h-4" />
-              <span>siriwat.chr@gmail.com</span>
-            </div>
-            <div
-              className={`hidden sm:block w-1 h-1 rounded-full ${
-                darkMode ? "bg-gray-600" : "bg-stone-400"
-              }`}
-            ></div>
-            <div className="flex items-center gap-3">
-              <MapPin className="w-4 h-4" />
-              <span>Phitsanulok, Thailand</span>
-            </div>
+            {contactInfo.map((info, idx) => (
+              <React.Fragment key={info.value}>
+                <ContactItem icon={info.icon} value={info.value} />
+                {idx < contactInfo.length - 1 && (
+                  <div
+                    className={`hidden sm:block w-1 h-1 rounded-full ${
+                      darkMode ? theme.navBorder : "bg-stone-400"
+                    }`}
+                  ></div>
+                )}
+              </React.Fragment>
+            ))}
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

@@ -1,29 +1,10 @@
 import ProjectBox from "./ProjectBox";
+import { projects } from "../utils/productsData";
 
-/**
- * Props for the ProjectBox component.
- * @property darkMode - Whether dark mode is enabled.
- * @property reverse - If true, reverses the layout direction.
- * @property title - The project title.
- * @property description - The project description.
- * @property techs - Array of technologies used in the project.
- * @property role - The role or type of project.
- * @property kanji - Kanji character to display if no image is provided.
- * @property img - Optional image URL for the project.
- */
-
-/**
- * Props for the Projects component.
- * @property darkMode - Whether dark mode is enabled.
- */
 interface ProjectsProps {
   readonly darkMode: boolean;
 }
 
-/**
- * Renders the Projects section with a list of project cards.
- * @param props - ProjectsProps
- */
 function Projects({ darkMode }: ProjectsProps) {
   return (
     <section
@@ -46,43 +27,20 @@ function Projects({ darkMode }: ProjectsProps) {
           </h2>
         </div>
         <div className="space-y-20">
-          <ProjectBox
-            darkMode={darkMode}
-            title="Competency Database Website"
-            description="Fullstack web application with React.js frontend and Node.js backend featuring RESTful APIs and responsive UI design."
-            techs={["React.js", "Tailwind", "Node.js", "TypeScript", "Express", "MySQL"]}
-            role="Team Project"
-            kanji="竹"
-            img="/portfolio/project_competency.png"
-          />
+          {projects.map((project) => (
             <ProjectBox
+              key={project.title}
               darkMode={darkMode}
-              reverse
-              title="Covid-19 USA Dashboard"
-              description="React-based dashboard for visualizing COVID-19 data in the USA, featuring charts and responsive design."
-              techs={["React", "MUI", "Javascript", "Chart.js", "GeoJSON"]}
-              role="Team Project"
-              kanji="松"
-              img="/portfolio/project_covid.png"
+              title={project.title}
+              description={project.description}
+              techs={project.techs}
+              role={project.role}
+              kanji={project.kanji}
+              img={project.img}
+              reverse={project.reverse}
+              link={project.link}
             />
-          <ProjectBox
-            darkMode={darkMode}
-            title="Courses Management Website"
-            description="React-based course management system with Bootstrap styling and responsive table implementation for CRUD operations."
-            techs={["React", "Bootstrap", "Javascript", "Node.js", "Express"]}
-            role="Team Project"
-            kanji="松"
-            img="/portfolio/project_course.png"
-          />
-          <ProjectBox
-            reverse
-            darkMode={darkMode}
-            title="Deposit System Project"
-            description="Desktop application built with Python and PyQt5, implementing data structures and algorithms for efficient UI software."
-            techs={["Python", "PyQt5", "DSA"]}
-            role="Collaborator"
-            kanji="梅"
-          />
+          ))}
         </div>
       </div>
     </section>
