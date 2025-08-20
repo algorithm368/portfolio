@@ -1,5 +1,6 @@
-import CertificateBox from "./CertificateBox";
 import Header from "./commons/Header";
+import Section from "./commons/Section";
+import CertificateBox from "./CertificateBox";
 
 const certificates = [
   {
@@ -42,10 +43,7 @@ const certificates = [
 
 function CertificateSection({ darkMode }: { readonly darkMode: boolean }) {
   return (
-    <section
-      id="certificates"
-      className={`py-32 ${darkMode ? "bg-gray-800/30" : "bg-white"}`}
-    >
+    <Section id="certificates" darkMode={darkMode} pattern="even">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <Header
           darkMode={darkMode}
@@ -60,7 +58,7 @@ function CertificateSection({ darkMode }: { readonly darkMode: boolean }) {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
 

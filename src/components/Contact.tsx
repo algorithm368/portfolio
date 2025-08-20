@@ -1,4 +1,6 @@
 import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import Header from "./commons/Header";
+import Section from "./commons/Section";
 
 interface ContactProps {
   readonly darkMode: boolean;
@@ -6,33 +8,13 @@ interface ContactProps {
 
 function Contact({ darkMode }: ContactProps) {
   return (
-    <section
-      id="contact"
-      className={`py-32 ${darkMode ? "bg-gray-800/30" : "bg-white"}`}
-    >
+    <Section id="contact" darkMode={darkMode} pattern="odd">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <div
-            className={`inline-block w-16 h-1 mb-8 ${
-              darkMode ? "bg-emerald-400" : "bg-emerald-500"
-            }`}
-          ></div>
-          <h2
-            className={`text-4xl font-light tracking-wider mb-6 ${
-              darkMode ? "text-gray-100" : "text-stone-800"
-            }`}
-          >
-            Contact
-          </h2>
-          <p
-            className={`text-lg font-light ${
-              darkMode ? "text-gray-400" : "text-stone-500"
-            }`}
-          >
-            I'm always open to discussing new opportunities and exciting
-            projects.
-          </p>
-        </div>
+        <Header
+          darkMode={darkMode}
+          text="Contact"
+          subText="I'm always open to discussing new opportunities and exciting projects."
+        />
 
         <div className="grid md:grid-cols-2 gap-20">
           {/* Contact Info */}
@@ -210,7 +192,7 @@ function Contact({ darkMode }: ContactProps) {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
 

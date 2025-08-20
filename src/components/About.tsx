@@ -12,15 +12,6 @@ const education = {
   ],
 };
 
-const certifications = {
-  title: "Certifications",
-  items: [
-    { name: "CEPT B1", date: "Nov 2023" },
-    { name: "Google Cybersecurity", date: "July 2024" },
-    { name: "NSCA Basic Cybersecurity", date: "Aug 2024" },
-  ],
-};
-
 const skills = {
   title: "Skills",
   categories: [
@@ -94,7 +85,7 @@ function About({ darkMode }: { readonly darkMode: boolean }) {
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <Header darkMode={darkMode} text="About" subText="Who I am and what I do" />
-        <div className="grid lg:grid-cols-3 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* Education */}
           <InfoCard title={education.title} darkMode={darkMode}>
             <div className="space-y-6">
@@ -125,29 +116,7 @@ function About({ darkMode }: { readonly darkMode: boolean }) {
               ))}
             </div>
           </InfoCard>
-          {/* Certifications */}
-          <InfoCard title={certifications.title} darkMode={darkMode}>
-            <div className="space-y-6">
-              {certifications.items.map((cert) => (
-                <div key={cert.name}>
-                  <h4
-                    className={`font-normal mb-1 ${
-                      darkMode ? "text-gray-200" : "text-stone-700"
-                    }`}
-                  >
-                    {cert.name}
-                  </h4>
-                  <p
-                    className={`text-sm font-light ${
-                      darkMode ? "text-gray-500" : "text-stone-400"
-                    }`}
-                  >
-                    {cert.date}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </InfoCard>
+          
           {/* Skills */}
           <InfoCard title={skills.title} darkMode={darkMode}>
             <div className="space-y-8">

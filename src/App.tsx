@@ -4,10 +4,11 @@ import {
   Navigation,
   Hero,
   About,
-  Projects,
+  ProjectSection,
   Contact,
   Footer,
   CertificateSection,
+  SkillSection,
 } from "./components";
 import { useScrollSpy, useTheme } from "./hooks";
 import { NAV_ITEMS, SECTION_IDS } from "./utils/constants";
@@ -45,8 +46,9 @@ function App() {
         setMobileMenuOpen={setMobileMenuOpen}
       />
       <Hero darkMode={darkMode} scrollToSection={scrollToSection} />
-      <About darkMode={darkMode} />
-      <Projects darkMode={darkMode} />
+      {/* <About darkMode={darkMode} /> */}
+      <SkillSection darkMode={darkMode} />
+      <ProjectSection darkMode={darkMode} />
       <CertificateSection darkMode={darkMode} />
       <Contact darkMode={darkMode} />
       <Footer darkMode={darkMode} />

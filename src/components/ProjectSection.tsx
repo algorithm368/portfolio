@@ -1,17 +1,15 @@
 import ProjectBox from "./ProjectBox";
 import Header from "./commons/Header";
+import Section from "./commons/Section";
 import { projects } from "../utils/projectsData";
 
 interface ProjectsProps {
   readonly darkMode: boolean;
 }
 
-function Projects({ darkMode }: ProjectsProps) {
+function ProjectSection({ darkMode }: ProjectsProps) {
   return (
-    <section
-      id="projects"
-      className={`py-32 ${darkMode ? "bg-gray-900" : "bg-stone-50"}`}
-    >
+    <Section darkMode={darkMode} pattern="odd" id="projects">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <Header
           darkMode={darkMode}
@@ -35,8 +33,8 @@ function Projects({ darkMode }: ProjectsProps) {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
 
-export default Projects;
+export default ProjectSection;
