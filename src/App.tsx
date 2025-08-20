@@ -7,6 +7,7 @@ import {
   Projects,
   Contact,
   Footer,
+  CertificateSection,
 } from "./components";
 import { useScrollSpy, useTheme } from "./hooks";
 import { NAV_ITEMS, SECTION_IDS } from "./utils/constants";
@@ -46,6 +47,7 @@ function App() {
       <Hero darkMode={darkMode} scrollToSection={scrollToSection} />
       <About darkMode={darkMode} />
       <Projects darkMode={darkMode} />
+      <CertificateSection darkMode={darkMode} />
       <Contact darkMode={darkMode} />
       <Footer darkMode={darkMode} />
     </div>

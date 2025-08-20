@@ -1,5 +1,6 @@
 import ProjectBox from "./ProjectBox";
-import { projects } from "../utils/productsData";
+import Header from "./commons/Header";
+import { projects } from "../utils/projectsData";
 
 interface ProjectsProps {
   readonly darkMode: boolean;
@@ -12,20 +13,11 @@ function Projects({ darkMode }: ProjectsProps) {
       className={`py-32 ${darkMode ? "bg-gray-900" : "bg-stone-50"}`}
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <div
-            className={`inline-block w-16 h-1 mb-8 ${
-              darkMode ? "bg-emerald-400" : "bg-emerald-500"
-            }`}
-          ></div>
-          <h2
-            className={`text-4xl font-light tracking-wider mb-6 ${
-              darkMode ? "text-gray-100" : "text-stone-800"
-            }`}
-          >
-            Projects
-          </h2>
-        </div>
+        <Header
+          darkMode={darkMode}
+          text="Projects"
+          subText="My work and contributions"
+        />
         <div className="space-y-20">
           {projects.map((project) => (
             <ProjectBox

@@ -52,27 +52,67 @@ function ProjectBox({
         {img ? (
           <>
             {/* Project Image */}
-            <img
-              src={img}
-              alt={title}
-              className="p-4 h-80 w-80 object-contain cursor-zoom-in"
-              draggable={false}
+            <button
+              type="button"
+              className="p-0 border-none bg-transparent cursor-zoom-in"
               onClick={() => setModalOpen(true)}
-            />
+              aria-label={`Enlarge image for ${title}`}
+            >
+              <img
+                src={img}
+                alt={title}
+                className="p-4 h-80 w-80 object-contain pointer-events-none"
+                draggable={false}
+              />
+            </button>
             {/* Modal for Enlarged Image */}
             {modalOpen && (
-              <div
+              <button
                 className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
                 onClick={() => setModalOpen(false)}
+                onKeyDown={(e) => {
+                  if (
+                    e.key === "Escape" ||
+                    e.key === "Enter" ||
+                    e.key === " "
+                  ) {
+                    setModalOpen(false);
+                  }
+                }}
+                aria-label="Close image modal"
+                type="button"
+                tabIndex={0}
                 style={{ cursor: "zoom-out" }}
               >
-                <img
-                  src={img}
-                  alt={title}
-                  className={`max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border-4 ${theme.projectBoxModalBorder}`}
-                  draggable={false}
+                <button
+                  type="button"
+                  tabIndex={0}
+                  aria-label={`Close image modal`}
                   onClick={(e) => e.stopPropagation()}
-                />
+                  onKeyDown={(e) => {
+                    if (
+                      e.key === "Escape" ||
+                      e.key === "Enter" ||
+                      e.key === " "
+                    ) {
+                      e.stopPropagation();
+                      setModalOpen(false);
+                    }
+                  }}
+                  style={{
+                    outline: "none",
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                  }}
+                >
+                  <img
+                    src={img}
+                    alt={title}
+                    className={`max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border-4 ${theme.projectBoxModalBorder}`}
+                    draggable={false}
+                  />
+                </button>
                 <button
                   className="absolute top-8 right-8 text-white text-4xl font-bold"
                   onClick={(e) => {
@@ -84,7 +124,7 @@ function ProjectBox({
                 >
                   &times;
                 </button>
-              </div>
+              </button>
             )}
           </>
         ) : (

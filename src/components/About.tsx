@@ -1,3 +1,5 @@
+import Header from "./commons/Header";
+
 // Data definitions
 const education = {
   title: "Education",
@@ -49,9 +51,9 @@ function InfoCard({
   children,
   darkMode,
 }: {
-  title: string;
-  children: React.ReactNode;
-  darkMode: boolean;
+  readonly title: string;
+  readonly children: React.ReactNode;
+  readonly darkMode: boolean;
 }) {
   return (
     <div
@@ -84,33 +86,20 @@ function InfoCard({
   );
 }
 
-function About({ darkMode }: { darkMode: boolean }) {
+function About({ darkMode }: { readonly darkMode: boolean }) {
   return (
     <section
       id="about"
       className={`py-32 ${darkMode ? "bg-gray-800/30" : "bg-white"}`}
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <div
-            className={`inline-block w-16 h-1 mb-8 ${
-              darkMode ? "bg-emerald-400" : "bg-emerald-500"
-            }`}
-          ></div>
-          <h2
-            className={`text-4xl font-light tracking-wider mb-6 ${
-              darkMode ? "text-gray-100" : "text-stone-800"
-            }`}
-          >
-            About
-          </h2>
-        </div>
+        <Header darkMode={darkMode} text="About" />
         <div className="grid lg:grid-cols-3 gap-16">
           {/* Education */}
           <InfoCard title={education.title} darkMode={darkMode}>
             <div className="space-y-6">
-              {education.items.map((edu, idx) => (
-                <div key={idx}>
+              {education.items.map((edu) => (
+                <div key={edu.degree + edu.school}>
                   <h4
                     className={`font-normal text-lg mb-2 ${
                       darkMode ? "text-gray-200" : "text-stone-700"
@@ -139,8 +128,8 @@ function About({ darkMode }: { darkMode: boolean }) {
           {/* Certifications */}
           <InfoCard title={certifications.title} darkMode={darkMode}>
             <div className="space-y-6">
-              {certifications.items.map((cert, idx) => (
-                <div key={idx}>
+              {certifications.items.map((cert) => (
+                <div key={cert.name}>
                   <h4
                     className={`font-normal mb-1 ${
                       darkMode ? "text-gray-200" : "text-stone-700"
@@ -162,8 +151,8 @@ function About({ darkMode }: { darkMode: boolean }) {
           {/* Skills */}
           <InfoCard title={skills.title} darkMode={darkMode}>
             <div className="space-y-8">
-              {skills.categories.map((cat, idx) => (
-                <div key={idx}>
+              {skills.categories.map((cat) => (
+                <div key={cat.name}>
                   <h4
                     className={`font-normal mb-4 ${
                       darkMode ? "text-gray-200" : "text-stone-700"

@@ -25,8 +25,8 @@ function ContactItem({
   icon: Icon,
   value,
 }: {
-  icon: React.ElementType;
-  value: string;
+  readonly icon: React.ElementType;
+  readonly value: string;
 }) {
   return (
     <div className="flex items-center gap-3">

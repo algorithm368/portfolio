@@ -30,7 +30,7 @@ function Navigation({
           <div
             className={`font-light text-2xl tracking-wider ${THEME.light.logo} dark:${THEME.dark.logo}`}
           >
-            志利和
+            Portfolio
           </div>
 
           {/* Desktop Navigation */}
