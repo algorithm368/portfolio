@@ -93,7 +93,7 @@ function About({ darkMode }: { readonly darkMode: boolean }) {
       className={`py-32 ${darkMode ? "bg-gray-800/30" : "bg-white"}`}
     >
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
-        <Header darkMode={darkMode} text="About" />
+        <Header darkMode={darkMode} text="About" subText="Who I am and what I do" />
         <div className="grid lg:grid-cols-3 gap-16">
           {/* Education */}
           <InfoCard title={education.title} darkMode={darkMode}>

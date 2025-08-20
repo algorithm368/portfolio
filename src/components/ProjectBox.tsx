@@ -41,7 +41,7 @@ function ProjectBox({
       className={`flex flex-col lg:flex-row ${
         reverse ? "lg:flex-row-reverse" : ""
       } 
-        items-center rounded-xl shadow-lg overflow-hidden transition-all duration-500
+        rounded-xl border transition-shadow duration-200 shadow-md mb-6 hover:shadow-xl p-6 flex flex-col md:flex-row items-center
         ${theme.projectBoxBg}`}
       style={{ minHeight: "20rem" }}
     >
@@ -54,14 +54,14 @@ function ProjectBox({
             {/* Project Image */}
             <button
               type="button"
-              className="p-0 border-none bg-transparent cursor-zoom-in"
+              className="p-0 border-none  bg-transparent cursor-zoom-in"
               onClick={() => setModalOpen(true)}
               aria-label={`Enlarge image for ${title}`}
             >
               <img
                 src={img}
                 alt={title}
-                className="p-4 h-80 w-80 object-contain pointer-events-none"
+                className="w-60 h-40 object-cover rounded-lg shadow-lg mb-4 md:mb-0 md:mr-8 pointer-events-none"
                 draggable={false}
               />
             </button>
@@ -164,7 +164,7 @@ function ProjectBox({
 
         {/* Description */}
         <p
-          className={`text-lg font-light leading-relaxed mb-6 ${
+          className={`text-base leading-relaxed mb-2 ${
             darkMode ? "text-gray-400" : "text-stone-500"
           }`}
         >

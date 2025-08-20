@@ -23,6 +23,9 @@ export const THEME = {
     projectBoxLinkBg: "bg-stone-100",
     projectBoxLinkText: "text-stone-600",
     projectBoxLinkHover: "hover:bg-emerald-100",
+    projectBoxModalBorder: "border-blue-400", // or any border color you prefer
+    projectBoxKanji: "text-blue-200", // or any kanji color you prefer
+    projectBoxRole: "text-blue-500", // or any role color you prefer
   },
   dark: {
     // Navbar
@@ -39,7 +42,7 @@ export const THEME = {
     navMobileActiveText: "text-emerald-400",
 
     // ProjectBox
-    projectBoxBg: "bg-gray-900",
+    projectBoxBg: "bg-gray-900 border-gray-800",
     projectBoxCard: "bg-gray-600",
     projectBoxText: "text-gray-100",
     projectBoxAccent: "text-emerald-400",
@@ -48,5 +51,8 @@ export const THEME = {
     projectBoxLinkBg: "bg-gray-700",
     projectBoxLinkText: "text-gray-300",
     projectBoxLinkHover: "hover:bg-emerald-700",
+    projectBoxModalBorder: "border-blue-400", // or any border color you prefer
+    projectBoxKanji: "text-blue-200", // or any kanji color you prefer
+    projectBoxRole: "text-blue-500", // or any role color you prefer
   },
 };
