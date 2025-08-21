@@ -2,10 +2,12 @@ function Section({
   children,
   darkMode,
   pattern,
+  id,
 }: {
   readonly children: React.ReactNode;
   readonly darkMode: boolean;
   readonly pattern: string;
+  readonly id: string;
 }) {
   let className = "";
 
@@ -16,7 +18,7 @@ function Section({
   }
 
   return (
-    <section className={`py-32 ${className}`}>
+    <section className={`py-32 ${className}`} id={id}>
       <div className="max-w-5xl mx-auto px-6 lg:px-8">{children}</div>
     </section>
   );

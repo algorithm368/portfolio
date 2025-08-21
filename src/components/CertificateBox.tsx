@@ -27,7 +27,7 @@ const CertificateBox: React.FC<CertificateProps> = ({
         ${
           darkMode
             ? "bg-gray-800 border-gray-700 text-gray-100"
-            : "bg-white border-gray-200 text-gray-900"
+            : "bg-white border-gray-800 text-gray-900"
         }
       `}
     >
