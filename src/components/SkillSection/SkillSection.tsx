@@ -2,7 +2,6 @@ import Header from "../commons/Header";
 import Section from "../commons/Section";
 import SkillCategoryBox from "./SkillCategoryBox";
 import { skillsData } from "../../utils/skillsData";
-import { THEME } from "../utils/theme";
 
 function SkillSection({ darkMode }: { readonly darkMode: boolean }) {
   return (

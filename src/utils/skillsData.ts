@@ -1,14 +1,28 @@
-export const skillsData = [
+import * as FaIcons from "react-icons/fa";
+
+export type SkillIcon = keyof typeof FaIcons;
+
+export interface Skill {
+  name: string;
+  icon: SkillIcon;
+}
+
+export interface SkillCategory {
+  category: string;
+  skills: Skill[];
+}
+
+export const skillsData: SkillCategory[] = [
   {
     category: "Programming",
     skills: [
       { name: "Python", icon: "FaPython" },
       { name: "Java", icon: "FaJava" },
-      { name: "C", icon: "FaCode" }, // No FaC, using FaCode as generic
-      { name: "C++", icon: "FaCode" }, // No FaCplusplus, using FaCode
+      { name: "C", icon: "FaCode" },
+      { name: "C++", icon: "FaCode" },
       { name: "JavaScript", icon: "FaJs" },
-      { name: "TypeScript", icon: "FaJsSquare" }, // No FaTypescript, using FaJsSquare
-      { name: "Bash", icon: "FaTerminal" }, // No FaGnubash, using FaTerminal
+      { name: "TypeScript", icon: "FaJsSquare" },
+      { name: "Bash", icon: "FaTerminal" },
     ],
   },
   {
@@ -16,11 +30,11 @@ export const skillsData = [
     skills: [
       { name: "React", icon: "FaReact" },
       { name: "React Native", icon: "FaReact" },
-      { name: "Next.js", icon: "FaReact" }, // No FaNextdotjs, using FaReact
+      { name: "Next.js", icon: "FaReact" },
       { name: "Vue", icon: "FaVuejs" },
-      { name: "FastAPI", icon: "FaRocket" }, // No FaFastapi, using FaRocket
-      { name: "Express", icon: "FaNodeJs" }, // No FaExpress, using FaNodeJs
-      { name: ".NET", icon: "FaWindows" }, // No FaDotnet, using FaWindows
+      { name: "FastAPI", icon: "FaRocket" },
+      { name: "Express", icon: "FaNodeJs" },
+      { name: ".NET", icon: "FaWindows" },
     ],
   },
   {
